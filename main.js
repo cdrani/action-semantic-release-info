@@ -100,7 +100,7 @@ const plugins = [
 
 async function main() {
     try {
-        const currentBranch = process.env.GITHUB_HEAD_REF;
+        const currentBranch = process.env.GITHUB_HEAD_REF || process.env.GITHUB_REF;
         const result = await semanticRelease({
             noCi: true, dryRun: true, branches: [currentBranch, 'main'],
             "plugins": plugins
